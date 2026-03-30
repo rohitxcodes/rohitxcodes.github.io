@@ -12,6 +12,3 @@ Personal portfolio website for Rohit Kumar, a backend-heavy full-stack developer
 
 React, TypeScript, GSAP, ThreeJS, WebGL, HTML, CSS, JavaScript
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
