@@ -80,6 +80,7 @@
     /* Force auto height */
     width: 100% !important;
     order: 3;
+
     /* Third: Subtitles */
   }
 
@@ -555,7 +556,7 @@ h2.landing-info-h2 {
     text-align: left;
     transform: translateY(-50%);
     left: auto;
-    right: 2.5%;
+    right: 3.5%;
     max-width: none;
   }
 
