@@ -1,0 +1,1764 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rohit Kumar - Backend-focused full-stack engineer portfolio"
+    />
+    <title>Rohit Kumar | Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0A0A0A;
+        --bg-subtle: #0E1015;
+        --panel: #12141A;
+        --panel-border: #222634;
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #F3F4F6;
+        --muted: #9CA3AF;
+        --muted-dark: #6B7280;
+        --accent: #F0A63A;
+        --accent-blue: #3B82F6;
+        --accent-blue-hover: #2563EB;
+        --success: #10B981;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 8px;
+        --shadow-glow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        --mono: 'Space Mono', 'Inconsolata', 'Roboto Mono', ui-monospace, monospace;
+        --sans: 'Roboto', 'Inter', system-ui, -apple-system, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent-blue);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        width: min(calc(100% - 40px), 1240px);
+        margin: 0 auto;
+      }
+
+      /* Navigation Bar */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(10, 10, 10, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-inner {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-family: var(--mono);
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: 0.08em;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .brand span {
+        color: #FFFFFF;
+      }
+
+      .nav-right-group {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+
+      .nav-links a {
+        transition: color 150ms ease;
+      }
+
+      .nav-links a:hover {
+        color: #FFFFFF;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 6px;
+        border: 1px solid var(--panel-border);
+        background: #151821;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text);
+        transition: all 150ms ease;
+      }
+
+      .nav-btn:hover {
+        background: #1E2330;
+        border-color: #374151;
+      }
+
+      .nav-btn .star-icon {
+        color: #F59E0B;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 72px 0 60px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(460px, 0.95fr);
+        gap: 40px;
+        align-items: start;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.03);
+        color: #D1D5DB;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+
+      .hero-badge .spark {
+        color: var(--accent);
+      }
+
+      .hero-title {
+        font-family: var(--mono);
+        font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: 800;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+      }
+
+      .hero-title .highlight-box {
+        display: inline-block;
+        background: #FFFFFF;
+        color: #0A0A0A;
+        padding: 4px 16px;
+        border-radius: 3px;
+        font-weight: 800;
+        margin: 6px 4px;
+        transform: rotate(-2.5deg);
+        transform-origin: center;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.12);
+        transition: transform 200ms ease;
+      }
+      .hero-title .highlight-box:hover {
+        transform: rotate(-1deg) scale(1.02);
+      }
+
+      .hero-lede {
+        font-family: var(--mono);
+        font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+        line-height: 1.55;
+        color: #9CA3AF;
+        max-width: 50ch;
+        margin-bottom: 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 44px;
+        padding: 0 20px;
+        border-radius: 6px;
+        font-family: var(--mono);
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 150ms ease;
+      }
+
+      .btn-primary {
+        background: #FFFFFF;
+        color: #0A0A0A;
+        border: 1px solid #FFFFFF;
+      }
+
+      .btn-primary:hover {
+        background: #E5E7EB;
+        border-color: #E5E7EB;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: #141720;
+        color: #FFFFFF;
+        border: 1px solid var(--panel-border);
+      }
+
+      .btn-secondary:hover {
+        background: #1C202C;
+        border-color: #374151;
+        transform: translateY(-1px);
+      }
+
+      .btn-resume {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+      }
+
+      .btn-resume:hover {
+        background: rgba(240, 166, 58, 0.1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(240, 166, 58, 0.2);
+      }
+
+      .hero-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tag-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border-radius: 6px;
+        border: 1px solid var(--panel-border);
+        background: #111319;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: #D1D5DB;
+      }
+
+      /* IDE Window Widget */
+      .ide-card {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-radius: 8px;
+        box-shadow: var(--shadow-glow);
+        overflow: hidden;
+      }
+
+      .ide-header {
+        height: 42px;
+        background: #141720;
+        border-bottom: 1px solid var(--panel-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 12px;
+        gap: 12px;
+      }
+
+      .ide-header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .ide-brand {
+        font-family: var(--mono);
+        font-weight: 800;
+        font-size: 0.82rem;
+        color: #FFFFFF;
+        letter-spacing: 0.08em;
+      }
+
+      .ide-lang-select {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        color: #D1D5DB;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .ide-tab {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-bottom: none;
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 4px 4px 0 0;
+      }
+
+      .ide-header-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .run-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 4px;
+        border: none;
+        background: var(--accent-blue);
+        color: #FFFFFF;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 150ms ease;
+      }
+
+      .run-btn:hover {
+        background: var(--accent-blue-hover);
+      }
+
+      .btn-sm-dark {
+        padding: 4px 10px;
+        border-radius: 4px;
+        border: 1px solid var(--panel-border);
+        background: #1B1F2C;
+        color: #9CA3AF;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        cursor: pointer;
+      }
+
+      .ide-editor {
+        display: flex;
+        background: #131313;
+        padding: 16px 0;
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        line-height: 1.6;
+        min-height: 320px;
+        color: #D4D4D4;
+      }
+
+      .line-nums {
+        padding: 0 14px;
+        color: #5C6370;
+        text-align: right;
+        user-select: none;
+      }
+
+      .code-content {
+        padding-right: 14px;
+        color: #D4D4D4;
+        white-space: pre;
+        flex: 1;
+        overflow-x: auto;
+      }
+
+      .inc { color: #3592FF; font-weight: 600; }
+      .hdr { color: #E06C75; }
+      .kw { color: #3592FF; font-weight: 600; }
+      .type { color: #4EC9B0; }
+      .fn { color: #E5C07B; }
+      .const { color: #E5C07B; font-weight: 600; }
+      .str { color: #CE9178; }
+      .cmt { color: #6B7280; font-style: italic; }
+      .num { color: #B5CEA8; }
+
+      .ide-console {
+        background: #090A0D;
+        border-top: 1px solid var(--panel-border);
+        padding: 12px 14px;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+      }
+
+      .console-status-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        background: rgba(16, 185, 129, 0.12);
+        color: #34D399;
+        font-weight: 600;
+      }
+
+      .status-pill .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #34D399;
+      }
+
+      .console-logs {
+        display: grid;
+        gap: 4px;
+        color: #9CA3AF;
+      }
+
+      .log-line {
+        display: flex;
+        gap: 12px;
+      }
+
+      .log-idx {
+        color: #4B5563;
+        width: 16px;
+      }
+
+      /* Trusted By Banner */
+      .trusted {
+        padding: 60px 0;
+        text-align: center;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trusted-head {
+        font-family: var(--mono);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        color: #E5E7EB;
+        margin-bottom: 28px;
+        text-transform: uppercase;
+      }
+
+      .trusted-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px 36px;
+      }
+
+      .trusted-item {
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #6B7280;
+        text-transform: uppercase;
+        transition: color 150ms ease;
+      }
+
+      .trusted-item:hover {
+        color: #9CA3AF;
+      }
+
+      /* Section Common */
+      section {
+        padding: 80px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-head {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .section-title {
+        font-family: var(--mono);
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+      }
+
+      .section-desc {
+        font-family: var(--mono);
+        font-size: 0.95rem;
+        color: var(--muted);
+        max-width: 60ch;
+        margin: 0 auto;
+      }
+
+      /* Product / Project Showcase Cards */
+      .project-card {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: var(--shadow-glow);
+        margin-bottom: 32px;
+      }
+
+      .project-card.reverse {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-info {
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .project-header h3 {
+        font-family: var(--mono);
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        margin-bottom: 6px;
+      }
+
+      .project-sub {
+        font-family: var(--mono);
+        font-size: 0.92rem;
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+
+      .project-bullets {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .project-bullets li {
+        font-family: var(--mono);
+        font-size: 0.84rem;
+        color: #D1D5DB;
+        line-height: 1.55;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .project-bullets li::before {
+        content: "■";
+        color: var(--accent-blue);
+        font-size: 0.7rem;
+        margin-top: 2px;
+      }
+
+      .project-footer-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .role-tag {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .role-tag strong {
+        color: #FFFFFF;
+      }
+
+      .why-box {
+        background: rgba(255, 255, 255, 0.02);
+        border-left: 3px solid var(--accent);
+        padding: 10px 14px;
+        border-radius: 0 6px 6px 0;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: #9CA3AF;
+      }
+
+      .why-box strong {
+        display: block;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+      }
+
+      .project-preview {
+        background: #090A0E;
+        border-left: 1px solid var(--panel-border);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card.reverse .project-preview {
+        border-left: none;
+        border-right: 1px solid var(--panel-border);
+        order: -1;
+      }
+
+      .terminal-header {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .term-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .term-dot.red { background: #EF4444; }
+      .term-dot.yellow { background: #F59E0B; }
+      .term-dot.green { background: #10B981; }
+
+      .term-title {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: #6B7280;
+        margin-left: 8px;
+      }
+
+      .terminal-body {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        line-height: 1.6;
+        color: #E5E7EB;
+        white-space: pre-wrap;
+        flex: 1;
+      }
+
+      /* Project Screenshot Frame */
+      .project-screenshot {
+        flex: 1;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid var(--panel-border);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      }
+
+      .project-screenshot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+
+      .project-screenshot:hover img {
+        transform: scale(1.03);
+      }
+
+      /* Hero Profile Photo */
+      .hero-photo-wrap {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .hero-photo {
+        width: 300px;
+        height: 380px;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: var(--radius-lg);
+        border: 2px solid var(--panel-border);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+        display: block;
+      }
+
+      .hero-photo-badge {
+        position: absolute;
+        bottom: -12px;
+        right: -12px;
+        background: var(--accent-blue);
+        color: #fff;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 6px;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+        box-shadow: 0 4px 16px rgba(59,130,246,0.4);
+      }
+
+      /* Experience Cards */
+      .filter-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+
+      .tab-btn {
+        background: #111319;
+        border: 1px solid var(--panel-border);
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 8px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 150ms ease;
+      }
+
+      .tab-btn.active, .tab-btn:hover {
+        color: #FFFFFF;
+        border-color: var(--accent-blue);
+        background: #161A26;
+      }
+
+      .exp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .exp-card {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .exp-kicker {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--accent-blue);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+
+      .exp-title {
+        font-family: var(--mono);
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        margin-bottom: 4px;
+      }
+
+      .exp-meta {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--muted-dark);
+        margin-bottom: 18px;
+      }
+
+      .exp-list {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .exp-list li {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        color: #D1D5DB;
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .exp-list li::before {
+        content: "•";
+        color: var(--accent-blue);
+      }
+
+      /* FAQ Section */
+      .faq-list {
+        max-width: 840px;
+        margin: 0 auto;
+        display: grid;
+        gap: 14px;
+      }
+
+      details {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-radius: var(--radius-sm);
+        padding: 16px 20px;
+      }
+
+      summary {
+        font-family: var(--mono);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        content: "+";
+        font-size: 1.2rem;
+        color: var(--accent-blue);
+      }
+
+      details[open] summary::after {
+        content: "−";
+      }
+
+      details p {
+        font-family: var(--mono);
+        font-size: 0.86rem;
+        color: #9CA3AF;
+        margin-top: 12px;
+        line-height: 1.6;
+      }
+
+      /* About Section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 20px;
+      }
+
+      .about-card {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-radius: var(--radius-md);
+        padding: 28px;
+      }
+
+      .about-card h3 {
+        font-family: var(--mono);
+        font-size: 0.88rem;
+        font-weight: 800;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+
+      .about-list {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .about-list li {
+        font-family: var(--mono);
+        font-size: 0.86rem;
+        color: #D1D5DB;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .about-list li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .contact-card {
+        background: #0E1015;
+        border: 1px solid var(--panel-border);
+        border-radius: var(--radius-md);
+        padding: 28px;
+        text-align: center;
+      }
+
+      .contact-card h3 {
+        font-family: var(--mono);
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        margin-bottom: 8px;
+      }
+
+      .contact-card p {
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 40px 0;
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--muted-dark);
+      }
+
+      /* Responsive Media Queries */
+
+      @media (max-width: 1024px) {
+        .hero-grid, .project-card, .project-card.reverse, .exp-grid, .contact-grid, .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-card.reverse .project-preview {
+          order: 0;
+          border-right: none;
+          border-top: 1px solid var(--panel-border);
+        }
+
+        .project-preview {
+          border-left: none;
+          border-top: 1px solid var(--panel-border);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-inner {
+          height: auto;
+          padding: 12px 0;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .nav-links {
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+
+        .hero {
+          padding-top: 40px;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#hero">ROHIT<span>KUMAR</span></a>
+        <div class="nav-right-group">
+          <ul class="nav-links" aria-label="Primary Navigation">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a
+              class="nav-btn"
+              href="https://leetcode.com/u/rohitxcodes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span style="color:#F59E0B;">⚡</span> LeetCode 100+
+            </a>
+            <a
+              class="nav-btn"
+              href="https://github.com/rohitxcodes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="star-icon">★</span> GitHub 
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <header class="hero" id="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-left">
+            <h1 class="hero-title">
+              Backend systems<br />
+              <span class="highlight-box">made reliable</span> for<br />
+              every application
+            </h1>
+            <p class="hero-lede">
+              Backend-focused full-stack engineer &amp; final-year B.Tech CSIT student.
+              Building async code execution pipelines, real-time engines, and bulletproof APIs built for high scale.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">Get Started →</a>
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/rohitxcodes"
+                target="_blank"
+                rel="noreferrer"
+                >View on GitHub ↗</a
+              >
+              <a
+                class="btn btn-resume"
+                href="images/Rohit_Kumar_TCS.pdf"
+                download="Rohit_Kumar_Resume.pdf"
+                title="Download Rohit Kumar's Resume"
+                >⬇ Resume</a
+              >
+            </div>
+            <div class="hero-tags">
+              <span class="tag-pill">🛡️ SOA Ideathon Winner</span>
+              <span class="tag-pill">⚡ High Concurrency</span>
+              <span class="tag-pill">&lt;/&gt; Node.js, C++ &amp; Java</span>
+            </div>
+          </div>
+
+          <!-- Judge0 Style IDE Mockup -->
+          <div class="ide-card" aria-label="Interactive Code Preview Widget">
+            <div class="ide-header">
+              <div class="ide-header-left">
+                <span class="ide-brand">JUDGE0</span>
+                <select class="ide-lang-select" id="langSelect" aria-label="Language Selector">
+                  <option value="cpp">C++ (GCC 13.2.0)</option>
+                  <option value="java">Java (OpenJDK 21)</option>
+                  <option value="js">JavaScript (Node.js v20.x)</option>
+                  <option value="python">Python (v3.12)</option>
+                </select>
+                <div class="ide-tab" id="ideTabName">main.cpp</div>
+              </div>
+              <div class="ide-header-right">
+                <button class="run-btn" id="runBtn" type="button">▶ Run Code</button>
+                <button class="btn-sm-dark" id="copyBtn" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="ide-editor">
+              <div class="line-nums">
+                1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
+              </div>
+              <div class="code-content" id="codeDisplay">
+<span class="inc">#include</span> <span class="hdr">&lt;iostream&gt;</span>
+<span class="inc">#include</span> <span class="hdr">&lt;vector&gt;</span>
+<span class="inc">#include</span> <span class="hdr">&lt;string&gt;</span>
+
+<span class="cmt">// Rohit Kumar | B.Tech CSIT @ ITER Bhubaneswar (Batch '27)</span>
+<span class="kw">class</span> <span class="type">RohitEngineer</span> {
+<span class="kw">public</span>:
+    <span class="type">std::vector</span>&lt;<span class="type">std::string</span>&gt; coursework = {
+        <span class="str">"Data Structures &amp; Algorithms (100+ LeetCode)"</span>,
+        <span class="str">"System Design &amp; Distributed Systems"</span>,
+        <span class="str">"DBMS &amp; Operating Systems"</span>, <span class="str">"Computer Networks"</span>
+    };
+    <span class="type">std::vector</span>&lt;<span class="type">std::string</span>&gt; stack = {<span class="str">"C++"</span>, <span class="str">"Java"</span>, <span class="str">"JavaScript"</span>, <span class="str">"Python"</span>, <span class="str">"Docker"</span>, <span class="str">"MongoDB"</span>};
+
+    <span class="kw">void</span> <span class="fn">printAchievements</span>() {
+        <span class="type">std::cout</span> &lt;&lt; <span class="str">"Winner: SOA Ideathon | SIH 2024 Finalist\n"</span>;
+        <span class="type">std::cout</span> &lt;&lt; <span class="str">"Engine: Judge0 Async Pipeline &amp; 3-Tier Rate Limiter\n"</span>;
+    }
+};
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="type">RohitEngineer</span> dev;
+    dev.<span class="fn">printAchievements</span>();
+    <span class="kw">return</span> <span class="num">0</span>;
+}</div>
+            </div>
+            <div class="ide-console">
+              <div class="console-status-bar">
+                <span class="status-pill" id="statusPill">
+                  <span class="dot"></span> <span id="statusText">Status: Accepted (0.012s, 4.2 MB)</span>
+                </span>
+                <span style="color:#3B82F6; font-weight:700; font-family:var(--mono);">Output (Stdout)</span>
+              </div>
+              <div class="console-logs" id="consoleLogs">
+                <div class="log-line"><span class="log-idx">1</span><span>Winner: SOA Ideathon | SIH 2024 Finalist</span></div>
+                <div class="log-line"><span class="log-idx">2</span><span>Engine: Judge0 Async Pipeline &amp; 3-Tier Rate Limiter</span></div>
+                <div class="log-line"><span class="log-idx">3</span><span>Coursework: DSA (100+ LeetCode), System Design, DBMS, OS, Networks</span></div>
+                <div class="log-line"><span class="log-idx">4</span><span>Languages &amp; Stack: C++, Java, JavaScript, Python, Docker, MongoDB</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Trusted By Banner -->
+      <section class="trusted" aria-label="Trusted By Section">
+        <div class="wrap">
+          <h2 class="trusted-head">ROHIT KUMAR IS DEFINED BY</h2>
+          <div class="trusted-grid">
+            <div class="trusted-item">SOA IDEATHON (SIH '25)</div>
+            <div class="trusted-item">LEETCODE (100+)</div>
+            <div class="trusted-item">OUTLIER (AI TRAINER)</div>
+            <div class="trusted-item">CHEGG INC.</div>
+            <div class="trusted-item">USERTESTING</div>        
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-desc">
+              Production-focused backend & full-stack systems built around async execution, WebSockets, and secure RBAC.
+            </p>
+          </div>
+
+          <!-- Project 1: Code Quest (Nexus) -->
+          <article class="project-card">
+            <div class="project-info">
+              <div class="project-header">
+                <h3>
+                  <a
+                    href="https://code-quest-nexus.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Code Quest (Nexus)
+                  </a>
+                </h3>
+                <div class="project-sub">Gamified Coding Platform (Team Project)</div>
+              </div>
+              <ul class="project-bullets">
+                <li>Designed secure XP/level system with exploit prevention and Judge0 async execution pipeline with polling.</li>
+                <li>Engineered clan chat, real-time leaderboards, and rate-limited submission endpoints.</li>
+                <li>Owned backend architecture, state synchronization, and execution queues.</li>
+              </ul>
+              <div class="project-footer-meta">
+                <div class="role-tag">
+                  <strong>Backend Engineer</strong> · Jan 2026 – Present
+                </div>
+                <div class="why-box">
+                  <strong>Stack:</strong> Node.js, Express, MongoDB, Socket.io, Judge0 API
+                </div>
+              </div>
+            </div>
+            <div class="project-preview">
+              <div class="terminal-header">
+                <div class="term-dot red"></div>
+                <div class="term-dot yellow"></div>
+                <div class="term-dot green"></div>
+                <span class="term-title">codequest-nexus.png</span>
+              </div>
+              <div class="project-screenshot">
+                <img
+                  src="images/codeQuest.png"
+                  alt="Code Quest (Nexus) – Gamified Coding Platform Screenshot"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: TeamTrack -->
+          <article class="project-card reverse">
+            <div class="project-info">
+              <div class="project-header">
+                <h3>
+                  <a
+                    href="https://team-track-beta.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    TeamTrack
+                  </a>
+                </h3>
+                <div class="project-sub">Task Management System (Solo Project)</div>
+              </div>
+              <ul class="project-bullets">
+                <li>Implemented RBAC (Admin/Member) with clean REST APIs for task and group management workflows.</li>
+                <li>Built real-time task status updates and team chat with secure JWT + bcrypt authentication.</li>
+                <li>Dual-mode auth support with httpOnly cookie and Bearer header token validation.</li>
+              </ul>
+              <div class="project-footer-meta">
+                <div class="role-tag">
+                  <strong>Full-Stack Engineer</strong> · Apr 2026 – Present
+                </div>
+                <div class="why-box">
+                  <strong>Stack:</strong> Node.js, Express, MongoDB, React, Socket.io, JWT
+                </div>
+              </div>
+            </div>
+            <div class="project-preview">
+              <div class="terminal-header">
+                <div class="term-dot red"></div>
+                <div class="term-dot yellow"></div>
+                <div class="term-dot green"></div>
+                <span class="term-title">teamtrack.png</span>
+              </div>
+              <div class="project-screenshot">
+                <img
+                  src="images/teamtrack.png"
+                  alt="TeamTrack – Role-Based Task Management Platform Screenshot"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Jharkhand Tourism Website -->
+          <article class="project-card">
+            <div class="project-info">
+              <div class="project-header">
+                <h3>
+                  <a
+                    href="https://sih-2025-fql6.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Jharkhand Tourism Website
+                  </a>
+                  <span style="font-size: 0.8em; font-weight: normal;">(Team Project)</span>
+                </h3>
+                <div class="project-sub">Full-Stack Web App (Team Project)</div>
+              </div>
+              <ul class="project-bullets">
+                <li>Developed responsive frontend and integrated RESTful APIs for dynamic tourism content delivery.</li>
+                <li>Selected as the winning project in SOA Ideathon (Smart India Hackathon SIH 2025 track).</li>
+                <li>Optimized assets and page speed for seamless user interaction across mobile and desktop.</li>
+              </ul>
+              <div class="project-footer-meta">
+                <div class="role-tag">
+                  <strong>Full-Stack Developer</strong> · Sep 2025 – Oct 2025
+                </div>
+                <div class="why-box">
+                  <strong>Stack:</strong> React, TailwindCSS, Node.js, Express
+                </div>
+              </div>
+            </div>
+            <div class="project-preview">
+              <div class="terminal-header">
+                <div class="term-dot red"></div>
+                <div class="term-dot yellow"></div>
+                <div class="term-dot green"></div>
+                <span class="term-title">jharkhand-tourism.png · SOA Ideathon Winner</span>
+              </div>
+              <div class="project-screenshot">
+                <img
+                  src="images/Sih.png"
+                  alt="Jharkhand Tourism Website – SOA Ideathon SIH 2025 Winner Screenshot"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="section-title">Freelance Experience</h2>
+            <p class="section-desc">
+              Engineering roles & code evaluation benchmarks shaping core backend discipline and code quality.
+            </p>
+          </div>
+
+          <div class="filter-tabs">
+            <button class="tab-btn active" type="button">Backend</button>
+            <button class="tab-btn" type="button">Evaluation</button>
+            <button class="tab-btn" type="button">Support</button>
+          </div>
+
+          <div class="exp-grid">
+            <article class="exp-card">
+              <div>
+                <div class="exp-kicker">Code-Quest-Nexus</div>
+                <h3 class="exp-title">Founding Backend Engineer</h3>
+                <div class="exp-meta">Dec 2025 - May 2026 · Bhubaneswar</div>
+                <ul class="exp-list">
+                  <li>Architected a gamified competitive coding platform for concurrent user battles.</li>
+                  <li>Built Judge0 async code execution queues and real-time Socket.io 1v1 engine.</li>
+                  <li>Implemented MongoDB atomic 3-tier sliding window rate limiter to protect endpoints.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="exp-card">
+              <div>
+                <div class="exp-kicker">TeamTrack</div>
+                <h3 class="exp-title">Backend Engineer</h3>
+                <div class="exp-meta">April 2026 - May 2026 · 2 months</div>
+                <ul class="exp-list">
+                  <li>Developed RBAC task management platform using JWT httpOnly cookie auth.</li>
+                  <li>Conducted independent security audit and patched invitation auth bypass.</li>
+                  <li>Integrated Zod edge schema validation and real-time team chat channels.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="exp-card">
+              <div>
+                <div class="exp-kicker">Outlier</div>
+                <h3 class="exp-title">LLM Reasoning Evaluator</h3>
+                <div class="exp-meta">Aug 2024 - Jul 2025 · 1 year</div>
+                <ul class="exp-list">
+                  <li>Evaluated 50+ LLM reasoning outputs across STEM, DSA, and RLHF alignment benchmarks.</li>
+                  <li>Specialized in coding correctness, edge-case testing, and performance validation.</li>
+                  <li>Maintained top-tier quality ratings across a year-long production engagement.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="section-title">FAQ</h2>
+            <p class="section-desc">Achievements, background, and engineering focus.</p>
+          </div>
+
+          <div class="faq-list">
+            <details>
+              <summary>What are your key achievements?</summary>
+              <p>
+                Winner of the SOA Ideathon, internal hackathon winner on the road to Smart India Hackathon (SIH 2024), and 100+ Data Structures & Algorithms problems solved on LeetCode.
+              </p>
+            </details>
+            <details>
+              <summary>What certifications do you hold?</summary>
+              <p>
+                Full Stack Web Development Certification & Data Structures and Algorithms Mastery Certification.
+              </p>
+            </details>
+            <details>
+              <summary>What is your current technical focus?</summary>
+              <p>
+                Deepening distributed system design patterns, high-concurrency event loops, microservice security, and DSA algorithms that remain performant under heavy traffic load.
+              </p>
+            </details>
+            <details>
+              <summary>What technologies do you use daily?</summary>
+              <p>
+                Node.js, Express.js, MongoDB, Socket.io, React.js, JWT, Zod, Docker, C++, Java, and Git.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="section-title">About</h2>
+            <p class="section-desc">Education & background context.</p>
+          </div>
+
+          <!-- Achievement Showcase Banner -->
+          <div style="
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--panel-border);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+            margin-bottom: 32px;
+          ">
+            <img
+              src="images/banner.png"
+              alt="Rohit Kumar presenting at SOA IdeaThon – Road to Smart India Hackathon 2025"
+              loading="lazy"
+              style="width:100%; max-height:340px; object-fit:cover; object-position:center 20%; display:block;"
+            />
+            <div style="
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(to right, rgba(10,10,10,0.7) 0%, transparent 50%, rgba(10,10,10,0.3) 100%);
+              pointer-events: none;
+            "></div>
+            <div style="
+              position: absolute;
+              bottom: 24px;
+              left: 28px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            ">
+              <span style="
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--accent-blue);
+              ">Achievement Highlight</span>
+              <h3 style="
+                font-family: var(--mono);
+                font-size: 1.4rem;
+                font-weight: 800;
+                color: #FFFFFF;
+                line-height: 1.2;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+              ">SOA IdeaThon Winner</h3>
+              <p style="
+                font-family: var(--mono);
+                font-size: 0.82rem;
+                color: #D1D5DB;
+                text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+              ">Road to Smart India Hackathon 2025 · Bhubaneswar</p>
+            </div>
+            <div style="
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              background: var(--accent-blue);
+              color: #fff;
+              font-family: var(--mono);
+              font-size: 0.72rem;
+              font-weight: 700;
+              padding: 5px 12px;
+              border-radius: 6px;
+              letter-spacing: 0.06em;
+              box-shadow: 0 4px 16px rgba(59,130,246,0.4);
+            ">SIH 2025 Track</div>
+          </div>
+
+          <div class="about-grid">
+            <article class="about-card">
+              <h3>Education</h3>
+              <ul class="about-list">
+                <li>
+                  <strong>Siksha 'O' Anusandhan University (ITER), Bhubaneswar</strong><br />
+                  B.Tech CSIT · Batch 2027 · 4th Year Student
+                </li>
+                <li>
+                  <strong>Holy Cross School, Bokaro Steel City</strong><br />
+                  Intermediate (Class XII) · Completed March 2022
+                </li>
+                <li>
+                  <strong>Holy Cross School, Bokaro Steel City</strong><br />
+                  Matriculation (Class X) · Completed April 2020
+                </li>
+              </ul>
+            </article>
+
+            <article class="about-card">
+              <h3>Currently Looking For</h3>
+              <ul class="about-list">
+                <li>Backend Engineer / Full-Stack Engineer Internship Roles.</li>
+                <li>Building high-scale SaaS products with global teams.</li>
+                <li>Open for remote or hybrid opportunities.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-desc">Get in touch for internships, backend engineering roles, or SaaS collaborations.</p>
+          </div>
+
+          <div class="contact-grid">
+            <article class="contact-card">
+              <h3>Email</h3>
+              <p>rohitvis695@gmail.com</p>
+              <a class="btn btn-secondary" href="mailto:rohitvis695@gmail.com">Send Email</a>
+            </article>
+
+            <article class="contact-card">
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/hixrohit</p>
+              <a class="btn btn-secondary" href="https://linkedin.com/in/hixrohit" target="_blank" rel="noreferrer">Open Profile</a>
+            </article>
+
+            <article class="contact-card">
+              <h3>GitHub</h3>
+              <p>github.com/rohitxcodes</p>
+              <a class="btn btn-secondary" href="https://github.com/rohitxcodes" target="_blank" rel="noreferrer">View Code</a>
+            </article>
+
+            <article class="contact-card">
+              <h3>LeetCode</h3>
+              <p>leetcode.com/u/rohitxcodes</p>
+              <a class="btn btn-secondary" href="https://leetcode.com/u/rohitxcodes" target="_blank" rel="noreferrer">View Profile</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wrap">
+        <p>Rohit Kumar · Backend-Focused Full-Stack Engineer · rohitxcodes.github.io</p>
+      </div>
+    </footer>
+
+    <!-- Interactive JS Script for Judge0 Widget & Smooth Behavior -->
+    <script>
+      (() => {
+        // Judge0 Code Snippets & Program Stdout Outputs for Interactive Widget
+        const codeSnippets = {
+          cpp: {
+            filename: 'main.cpp',
+            code: `<span class="inc">#include</span> <span class="hdr">&lt;iostream&gt;</span>
+<span class="inc">#include</span> <span class="hdr">&lt;vector&gt;</span>
+<span class="inc">#include</span> <span class="hdr">&lt;string&gt;</span>
+
+<span class="cmt">// Rohit Kumar | B.Tech CSIT @ ITER Bhubaneswar (Batch '27)</span>
+<span class="kw">class</span> <span class="type">RohitEngineer</span> {
+<span class="kw">public</span>:
+    <span class="type">std::vector</span>&lt;<span class="type">std::string</span>&gt; coursework = {
+        <span class="str">"Data Structures & Algorithms (100+ LeetCode)"</span>,
+        <span class="str">"System Design & Distributed Systems"</span>,
+        <span class="str">"DBMS & Operating Systems"</span>, <span class="str">"Computer Networks"</span>
+    };
+    <span class="type">std::vector</span>&lt;<span class="type">std::string</span>&gt; stack = {<span class="str">"C++"</span>, <span class="str">"Java"</span>, <span class="str">"JavaScript"</span>, <span class="str">"Python"</span>, <span class="str">"Docker"</span>, <span class="str">"MongoDB"</span>};
+
+    <span class="kw">void</span> <span class="fn">printAchievements</span>() {
+        <span class="type">std::cout</span> &lt;&lt; <span class="str">"Winner: SOA Ideathon | SIH 2024 Finalist\n"</span>;
+        <span class="type">std::cout</span> &lt;&lt; <span class="str">"Engine: Judge0 Async Pipeline & 3-Tier Rate Limiter\n"</span>;
+    }
+};
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="type">RohitEngineer</span> dev;
+    dev.<span class="fn">printAchievements</span>();
+    <span class="kw">return</span> <span class="num">0</span>;
+}`,
+            output: [
+              "Winner: SOA Ideathon | SIH 2024 Finalist",
+              "Engine: Judge0 Async Pipeline & 3-Tier Rate Limiter",
+              "Coursework: DSA (100+ LeetCode), System Design, DBMS, OS, Networks",
+              "Languages & Stack: C++, Java, JavaScript, Python, Docker, MongoDB"
+            ]
+          },
+          java: {
+            filename: 'Main.java',
+            code: `<span class="inc">import</span> <span class="hdr">java.util.Arrays</span>;
+<span class="inc">import</span> <span class="hdr">java.util.List</span>;
+
+<span class="cmt">// Rohit Kumar - Core Engineering & System Design</span>
+<span class="kw">public class</span> <span class="type">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">List</span>&lt;<span class="type">String</span>&gt; coursework = <span class="type">Arrays</span>.<span class="fn">asList</span>(
+            <span class="str">"DSA (100+ Solved)"</span>, <span class="str">"System Design"</span>, <span class="str">"DBMS"</span>, <span class="str">"OS"</span>, <span class="str">"Networks"</span>
+        );
+        <span class="type">List</span>&lt;<span class="type">String</span>&gt; skills = <span class="type">Arrays</span>.<span class="fn">asList</span>(
+            <span class="str">"Java"</span>, <span class="str">"C++"</span>, <span class="str">"JavaScript"</span>, <span class="str">"Python"</span>, <span class="str">"Node.js"</span>, <span class="str">"JWT Auth"</span>, <span class="str">"Socket.io"</span>
+        );
+
+        <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"Role: Backend-Focused Full-Stack Engineer"</span>);
+        <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"Coursework: "</span> + coursework);
+        <span class="type">System</span>.out.<span class="fn">println</span>(<span class="str">"Skills Active: "</span> + skills);
+    }
+}`,
+            output: [
+              "Role: Backend-Focused Full-Stack Engineer",
+              "Coursework: [DSA (100+ Solved), System Design, DBMS, OS, Networks]",
+              "Skills Active: [Java, C++, JavaScript, Python, Node.js, JWT Auth, Socket.io]",
+              "Degree: B.Tech CSIT (4th Year, ITER Bhubaneswar)"
+            ]
+          },
+          js: {
+            filename: 'server.js',
+            code: `<span class="cmt">// Rohit Kumar - Full-Stack & Backend Systems Architecture</span>
+<span class="kw">const</span> rohitProfile = {
+  name: <span class="str">"Rohit Kumar"</span>,
+  degree: <span class="str">"B.Tech CSIT (4th Year, ITER Bhubaneswar)"</span>,
+  coursework: [<span class="str">"DSA (100+ LeetCode)"</span>, <span class="str">"System Design"</span>, <span class="str">"DBMS"</span>, <span class="str">"OS"</span>, <span class="str">"Networks"</span>],
+  languages: [<span class="str">"JavaScript"</span>, <span class="str">"C++"</span>, <span class="str">"Java"</span>, <span class="str">"Python"</span>],
+  techStack: [<span class="str">"Node.js"</span>, <span class="str">"Express.js"</span>, <span class="str">"MongoDB"</span>, <span class="str">"Socket.io"</span>, <span class="str">"JWT"</span>, <span class="str">"Zod"</span>, <span class="str">"Docker"</span>]
+};
+
+<span class="kw">const</span> <span class="fn">shipBackend</span> = <span class="kw">async</span> () => {
+  console.<span class="fn">log</span>(<span class="str">"Running Nexus & TeamTrack real-time engines..."</span>);
+  <span class="kw">return</span> { status: <span class="num">200</span>, readyFor: <span class="str">"Backend / Full-Stack Internships"</span> };
+};
+
+<span class="fn">shipBackend</span>().<span class="fn">then</span>(console.<span class="fn">log</span>);`,
+            output: [
+              "Running Nexus & TeamTrack real-time engines...",
+              "{ status: 200, readyFor: 'Backend / Full-Stack Internships' }",
+              "Profile: Rohit Kumar | B.Tech CSIT (4th Year, ITER Bhubaneswar)",
+              "Stack: Node.js, Express.js, MongoDB, Socket.io, JWT, Zod, Docker"
+            ]
+          },
+          python: {
+            filename: 'script.py',
+            code: `<span class="cmt"># Rohit Kumar - Systems & Code Evaluation</span>
+<span class="kw">class</span> <span class="type">EngineerProfile</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self):
+        self.name = <span class="str">"Rohit Kumar"</span>
+        self.degree = <span class="str">"B.Tech CSIT (4th Year, ITER Bhubaneswar)"</span>
+        self.coursework = [<span class="str">"DSA (100+ Solved)"</span>, <span class="str">"System Design"</span>, <span class="str">"DBMS"</span>, <span class="str">"OS"</span>, <span class="str">"Networks"</span>]
+        self.skills = [<span class="str">"Python"</span>, <span class="str">"C++"</span>, <span class="str">"Java"</span>, <span class="str">"JavaScript"</span>, <span class="str">"Node.js"</span>, <span class="str">"Docker"</span>, <span class="str">"MongoDB"</span>]
+        self.achievements = [<span class="str">"SOA Ideathon Winner"</span>, <span class="str">"SIH 2024 Finalist"</span>, <span class="str">"Outlier Evaluator"</span>]
+
+    <span class="kw">def</span> <span class="fn">display</span>(self):
+        print(f<span class="str">"{self.name} | {self.degree}"</span>)
+        print(f<span class="str">"Coursework: {', '.join(self.coursework)}"</span>)
+
+<span class="type">EngineerProfile</span>().<span class="fn">display</span>()`,
+            output: [
+              "Rohit Kumar | B.Tech CSIT (4th Year, ITER Bhubaneswar)",
+              "Coursework: DSA (100+ Solved), System Design, DBMS, OS, Networks",
+              "Skills: Python, C++, Java, JavaScript, Node.js, Docker, MongoDB",
+              "Achievements: SOA Ideathon Winner, SIH 2024 Finalist, Outlier Evaluator"
+            ]
+          }
+        };
+
+        const langSelect = document.getElementById('langSelect');
+        const ideTabName = document.getElementById('ideTabName');
+        const codeDisplay = document.getElementById('codeDisplay');
+        const runBtn = document.getElementById('runBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const statusText = document.getElementById('statusText');
+        const consoleLogs = document.getElementById('consoleLogs');
+
+        const updateConsoleOutput = (langKey) => {
+          const snippet = codeSnippets[langKey];
+          if (!snippet || !consoleLogs) return;
+          let logsHTML = '';
+          snippet.output.forEach((line, idx) => {
+            logsHTML += `<div class="log-line"><span class="log-idx">${idx + 1}</span><span>${line}</span></div>`;
+          });
+          consoleLogs.innerHTML = logsHTML;
+        };
+
+        if (langSelect) {
+          langSelect.addEventListener('change', (e) => {
+            const selected = e.target.value;
+            if (codeSnippets[selected]) {
+              ideTabName.textContent = codeSnippets[selected].filename;
+              codeDisplay.innerHTML = codeSnippets[selected].code;
+
+              const lines = codeSnippets[selected].code.split('\n').length;
+              let nums = '';
+              for (let i = 1; i <= lines; i++) {
+                nums += i + (i < lines ? '<br />' : '');
+              }
+              const lineNumsEl = document.querySelector('.line-nums');
+              if (lineNumsEl) lineNumsEl.innerHTML = nums;
+
+              updateConsoleOutput(selected);
+            }
+          });
+        }
+
+        if (runBtn) {
+          runBtn.addEventListener('click', () => {
+            runBtn.textContent = '⏳ Executing...';
+            statusText.textContent = 'Status: Running...';
+            setTimeout(() => {
+              const execTime = (Math.random() * 0.015 + 0.008).toFixed(3);
+              const memory = (Math.random() * 0.8 + 3.8).toFixed(1);
+              runBtn.textContent = '▶ Run Code';
+              statusText.textContent = `Status: Accepted (${execTime}s, ${memory} MB)`;
+              
+              const currentLang = langSelect ? langSelect.value : 'cpp';
+              updateConsoleOutput(currentLang);
+            }, 400);
+          });
+        }
+
+        if (copyBtn) {
+          copyBtn.addEventListener('click', () => {
+            const textToCopy = codeDisplay.innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+              copyBtn.textContent = 'Copied!';
+              setTimeout(() => copyBtn.textContent = 'Copy', 2000);
+            });
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
